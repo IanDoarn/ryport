@@ -1,7 +1,7 @@
 from lxml import etree
 
 
-class xmller:
+class XML:
 
     def __init__(self, root='root'):
         self.root = etree.Element(root)
@@ -26,7 +26,6 @@ class xmller:
     @staticmethod
     def add_child(root, child):
         root.append(child)
-
 
     def create_xml_data(self, file_name, query, server_information=[{}], information=[{}], use_default_root=True, custom_root=None):
 
