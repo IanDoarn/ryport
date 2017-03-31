@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ryport',
-    version='1.0.0',
+    version='1.0.1',
     packages=['ryport', 'ryport.pgsql', 'ryport.xml_builder'],
     url='https://github.com/IanDoarn/ryport',
     license='MIT',
