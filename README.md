@@ -1,7 +1,10 @@
 # ryport
-Automated reporting tool for postgres
+Reporting tool for postgres
 
-Can create xlsx files from sql queries as well as save them to be re run and also auto re-run a given times.
+ryport allows you to run simple postgres quries with ease as well as manipluate the data it may return!
+
+### Coming Soon!
+Soon ryport will be able to automate queries, output to excel files, and re run / refresh data daily
 
 ### Requirments
 - Python 3.6+
