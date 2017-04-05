@@ -8,20 +8,20 @@ import psycopg2
 
 __author__ = 'Ian Doarn'
 __maintainer__ = __author__
-__version__ = '1.0.0'
+__version__ = '1.0.2'
 
 
 class Postgres:
-
     """
     Connects to a postgres server using psycopg2
     """
-    def __init___(self):
+    def __init__(self, username=None, password=None, host=None, database=None):
+        self.username = username
+        self.password = password
+        self.host = host
+        self.database = database
         self.conn = None
         self.cursor = None
-        self.username = None
-        self.password = None
-        self.host = None
 
     def test_connection(self, retries=5):
         """
@@ -34,9 +34,15 @@ class Postgres:
         :param retries: Number of times to retry a connection
         :return:
         """
-        if self.username is None or self.password is None or self.host is None:
-            print('No login and host information found.')
-            return False
+
+        conn_info = {'username': self.username,
+                     'password': self.password,
+                     'host': self.host,
+                     'database': self.database}
+
+        if [v for k, v in conn_info.items() if v is None].__contains__(None):
+            raise ConnectionError('Missing Information: [{}]'.format(
+                str(', '.join([k for k, v in conn_info.items() if v is None]))))
         for i in range(0, retries):
             try:
                 self.establish_connection()
@@ -53,14 +59,11 @@ class Postgres:
         self.cursor the the connection cursor
         :return:
         """
-        if self.test_connection():
-            self.conn = psycopg2.connect("dbname=postgres user=" +
-                                         self.username + " host=" +
-                                         self.host + " password=" +
-                                         self.password)
-            self.cursor = self.conn.cursor()
-        else:
-            print('Unable to connect to host: {}'.format(self.host))
+        self.conn = psycopg2.connect("dbname=" + self.database +
+                                     " user=" + self.username +
+                                     " host=" + self.host +
+                                     " password=" + self.password)
+        self.cursor = self.conn.cursor()
 
     def close_connection(self):
         """
@@ -134,3 +137,22 @@ class Postgres:
             if type(row) is not data_type:
                 data[i] = data_type(row)
         return data
+
+    @staticmethod
+    def format_headers(headers):
+        """
+        Formats psycopg2 Column object to a 
+        dictionary of headers names and column index
+        
+        :param headers: Column object
+        :return: header data as a dictionary object
+        """
+        header_data = {'data': []}
+
+        column_index = 0
+        for key in headers:
+            header_data['data'].append({'name': key[0], 'column_index': column_index})
+            column_index += 1
+
+        return header_data
+
