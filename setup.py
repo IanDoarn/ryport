@@ -12,5 +12,5 @@ setup(
     license='MIT',
     author='Ian Doarn',
     author_email='ian.doarn@zimmerbiomet.com',
-    description='Automated reporting tool for postgres'
+    description='Reporting tool for PostgreSQL'
 )
