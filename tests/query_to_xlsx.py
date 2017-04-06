@@ -4,7 +4,7 @@ Written by: Ian Doarn
 Executes query and creates excel file from data
 """
 from ryport.pgsql.postgres import Postgres
-from ryport.xlsx.xlsx_writer import Writer
+from ryport.xlsx_writer.writer import Writer
 
 # Create postgres connection
 pg = Postgres(username='postgres',
@@ -29,7 +29,7 @@ data, headers = pg.execute(query, format_data=True, format_headers=True)
 pg.close_connection()
 
 # Set file name
-file_name = 'movies.xlsx'
+file_name = 'movies.xlsx_writer'
 
 # Create writer and load in data and headers
 writer = Writer(data, headers)

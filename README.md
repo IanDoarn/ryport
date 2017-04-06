@@ -51,7 +51,7 @@ Execute a query then create simple excel file from data
 -------------------------------------------------------
 ```python
 from ryport.pgsql.postgres import Postgres
-from ryport.xlsx.xlsx_writer import Writer
+from ryport.xlsx_writer.writer import Writer
 
 # Create postgres connection
 pg = Postgres(username='postgres',
