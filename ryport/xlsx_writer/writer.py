@@ -11,7 +11,7 @@ __file__ = 'writer.py'
 #TODO: Add support for multi sheet data
 #TODO: Add support for formatting on excel file tables, such as
 #TODO: cell color, text color, ect.
-#TODO: Auto format file names to check for .xlsx_writer extension if it isn't present
+#TODO: Auto format file names to check for .xlsx extension if it isn't present
 
 class Writer:
     """
@@ -74,13 +74,13 @@ class Writer:
 
         return init_letter, init_pos, final_letter, final_pos
 
-    def create_report(self, file_name='untitled.xlsx_writer', sheet_names=None):
+    def create_report(self, file_name='untitled.xlsx', sheet_names=None):
         """create_report
-        Creates excel(xlsx_writer) report from given data and Headers
+        Creates excel(xlsx) report from given data and headers
         
         Process:
         1. We check if if the user gave a sheet_name, raise an error if not
-        2. Create workbook and give it the name from file_name, defaulted as untitled.xlsx_writer
+        2. Create workbook and give it the name from file_name, defaulted as untitled.xlsx
         3. Create workbook sheet with sheet_names given
         4. Create list of each rows data
         5. Create column_data dict which is used from worksheet.add_table()
