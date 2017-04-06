@@ -13,12 +13,10 @@ Soon ryport will be able to automate queries, output to excel files, and re run 
 - XlsxWritter
 
 ### Usage
+
+Basic example of executing a query.
+----------------------------------
 ```python
-"""
-Connects to local database
-Executes query
-and formats returned data
-"""
 from ryport.pgsql.postgres import Postgres
 
 # Create postgres connection
@@ -47,4 +45,42 @@ pg.close_connection()
 # and headers are a psycopg2 Column object
 data = pg.format_data(data, list)
 headers = pg.format_headers(headers)
+```
+
+Execute a query then create simple excel file from data
+-------------------------------------------------------
+```python
+from ryport.pgsql.postgres import Postgres
+from ryport.xlsx.xlsx_writer import Writer
+
+# Create postgres connection
+pg = Postgres(username='postgres',
+              password='password',
+              host='localhost',
+              database='dvdrental')
+
+# Test connection to server
+pg.test_connection()
+
+# Establish connection to server
+pg.establish_connection()
+
+# Load query
+query = pg.open_sql_file(r'queries/movies.sql')
+
+# Execute query
+# Automatically format data and headers
+data, headers = pg.execute(query, format_data=True, format_headers=True)
+
+# Terminate connection to server
+pg.close_connection()
+
+# Set file name
+file_name = 'movies.xlsx'
+
+# Create writer and load in data and headers
+writer = Writer(data, headers)
+
+# Write report using the file_name and a basic sheet_name
+writer.create_report(file_name=file_name ,sheet_names='sheet1')
 ```

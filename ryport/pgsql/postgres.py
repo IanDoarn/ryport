@@ -77,7 +77,7 @@ class Postgres:
         except Exception as e:
             print('Unable to close connection to host: {}\n{}'.format(self.host, str(e)))
 
-    def execute(self, query):
+    def execute(self, query, format_data=False, format_headers=False):
         """
         Executes a query to postgres
 
@@ -98,6 +98,12 @@ class Postgres:
                 try:
                     data = self.cursor.fetchall()
                     headers = self.cursor.description
+
+                    if format_data is not False:
+                        data = self.format_data(data, data_type=list)
+                    if format_headers is not False:
+                        headers = self.format_headers(headers)
+
                     return data, headers
                 except Exception as e:
                     print(str(e))
