@@ -9,11 +9,11 @@ manipulate the data and build / reader xml files!
  - Re run any report
  - Save reports to be run again
 
-### Requirments
-- Python 3.6+
+### Requirements
+- Python 3.5+
 - psycopg2
 - lxml
-- XlsxWritter
+- xlsxwriter
 
 # Usage
 
