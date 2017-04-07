@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='ryport',
-    version='1.0.6',
+    version='1.0.7',
     install_requires=['psycopg2', 'lxml', 'XlsxWriter'],
     packages=['ryport', 'ryport.pgsql', 'ryport.xml_builder', 'ryport.xlsx_writer'],
     url='https://github.com/IanDoarn/ryport',

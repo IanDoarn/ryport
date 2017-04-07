@@ -87,6 +87,8 @@ class Postgres:
         otherwise nothing is returned
 
         :param query: Given input to be executed
+        :param format_data: 
+        :param format_headers:
         :return: Either data, data headers or None
         """
         if self.conn is None:
@@ -161,4 +163,3 @@ class Postgres:
             column_index += 1
 
         return header_data
-
