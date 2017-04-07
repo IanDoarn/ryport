@@ -1,10 +1,13 @@
 # ryport
 Reporting tool for postgres
 
-ryport allows you to run simple postgres quries with ease as well as manipluate the data it may return!
+ryport allows you to run simple postgres queries with ease as well as
+manipulate the data and build / reader xml files!
 
 ### Coming Soon!
-Soon ryport will be able to automate queries, output to excel files, and re run / refresh data daily
+ - Automated refresh of queries
+ - Re run any report
+ - Save reports to be run again
 
 ### Requirments
 - Python 3.6+
