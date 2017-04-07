@@ -1,0 +1,17 @@
+<Ian>
+  <name type="string" value="Ian"/>
+  <age type="integer" value="20"/>
+  <hobbies type="Hobbies">
+    <programming_languages type="languages" value="3">
+      <python language_name="python"/>
+      <java language_name="java"/>
+      <c_Sharp language_name="c_sharp"/>
+    </programming_languages>
+  </hobbies>
+  <games type="Games">
+    <computer_games type="PC">
+      <tf2 abbreviation="TF2" hours="4000" name="Team_Fortress_2"/>
+      <csgo abbreviation="CSGO" hours="600" name="Counter_Strike_Global_Offensive"/>
+    </computer_games>
+  </games>
+</Ian>
