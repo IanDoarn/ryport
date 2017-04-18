@@ -81,7 +81,7 @@ print(list(data[0]))
 -------------------------------------------------------
 ```python
 from ryport.pgsql.postgres import Postgres
-from ryport.xlsx_writer.writer import Writer
+from ryport.report.xlsxw import Writer
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
