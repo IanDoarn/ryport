@@ -6,7 +6,7 @@ Writes and excel (xlsx) file from given data and headers
 import xlsxwriter
 
 __author__ = 'Ian Doarn'
-__file__ = 'writer.py'
+__file__ = 'xlsx.py'
 
 #TODO: Add support for multi sheet data
 #TODO: Add support for formatting on excel file tables, such as

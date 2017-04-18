@@ -4,6 +4,7 @@ Created by: Ian Doarn
 Used to connect to postgres,
 execute queries and retrieve data
 """
+from ryport.utils import format_headers, format_data
 import psycopg2
 
 __author__ = 'Ian Doarn'
@@ -77,7 +78,7 @@ class Postgres:
         except Exception as e:
             print('Unable to close connection to host: {}\n{}'.format(self.host, str(e)))
 
-    def execute(self, query, format_data=False, format_headers=False):
+    def execute(self, query, allow_format_data=True, allow_format_headers=True):
         """
         Executes a query to postgres
 
@@ -87,8 +88,8 @@ class Postgres:
         otherwise nothing is returned
 
         :param query: Given input to be executed
-        :param format_data: 
-        :param format_headers:
+        :param format_data: Defaulted to True
+        :param format_headers: Defaulted to True
         :return: Either data, data headers or None
         """
         if self.conn is None:
@@ -101,10 +102,10 @@ class Postgres:
                     data = self.cursor.fetchall()
                     headers = self.cursor.description
 
-                    if format_data is not False:
-                        data = self.format_data(data, data_type=list)
-                    if format_headers is not False:
-                        headers = self.format_headers(headers)
+                    if allow_format_data is not False:
+                        data = format_data(data, data_type=list)
+                    if allow_format_headers is not False:
+                        headers = format_headers(headers)
 
                     return data, headers
                 except Exception as e:
@@ -126,40 +127,3 @@ class Postgres:
             query = f.read().replace('\n', ' ')
         f.close()
         return query
-
-    @staticmethod
-    def format_data(data, data_type=tuple):
-        """
-        Formats returned data.
-
-        By default psycopg2 returns queries as a list
-        of tuple objects. This will convert the tuples to the
-        give type.
-
-        :param data: Data returned by psycopg2
-        :param data_type: Type to convert the given data to. defaulted to tuple
-        :return: Formatted data
-        """
-        for i in range(len(data)):
-            row = data[i]
-            if type(row) is not data_type:
-                data[i] = data_type(row)
-        return data
-
-    @staticmethod
-    def format_headers(headers):
-        """
-        Formats psycopg2 Column object to a 
-        dictionary of headers names and column index
-        
-        :param headers: Column object
-        :return: header data as a dictionary object
-        """
-        header_data = {'data': []}
-
-        column_index = 0
-        for key in headers:
-            header_data['data'].append({'name': key[0], 'column_index': column_index})
-            column_index += 1
-
-        return header_data

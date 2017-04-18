@@ -67,3 +67,36 @@ def format_data(data, sql_type='postgres', data_type=tuple):
             if type(row) is not data_type:
                 data[i] = data_type(row)
         return data
+
+def format_header_data(headers):
+    """
+    Formats headers to list of headers
+    
+    :param headers: Dict of headers
+    :return: list
+    """
+    if type(headers) is dict:
+        if 'data' in headers.keys():
+            return [v['name'] for v in headers['data']]
+        else:
+            return format_header_data(format_headers(headers))
+
+def format_headers(headers):
+    """
+    Formats to a dictionary of headers 
+    names and column index
+
+    :param headers: Column object
+    :return: header data as a dictionary object
+    """
+    if type(headers) is not list:
+        raise TypeError('headers must be list not {}'.format(str(type(headers))))
+
+    header_data = {'data': []}
+
+    column_index = 0
+    for key in headers:
+        header_data['data'].append({'name': key[0], 'column_index': column_index})
+        column_index += 1
+
+    return header_data

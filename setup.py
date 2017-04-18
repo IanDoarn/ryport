@@ -5,10 +5,10 @@ except ImportError:
 
 setup(
     name='ryport',
-    version='1.0.11',
+    version='1.0.13',
     install_requires=['psycopg2', 'lxml', 'XlsxWriter', 'mysql-connector-python'],
     packages=['ryport', 'ryport.pgsql',
-              'ryport.xml_builder', 'ryport.xlsx_writer',
+              'ryport.xml_builder', 'ryport.report',
               'ryport.mysql'],
     url='https://github.com/IanDoarn/ryport',
     license='MIT',

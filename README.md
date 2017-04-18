@@ -1,7 +1,13 @@
 # ryport
-Softwrapper and reporting tool for Postgres and MySQL
+Softwrapper and reporting tool for Postgres
+
+Ryport can ru queries and write the data straight to readable formats
+such as Excel and CSV. 
+
+__!!Currently only PostgreSQL data can be converted to Excel and CSV files!!__
 
 ### Coming Soon!
+ - Full support for MySQL, MongoDB, Apex SQL
  - Automated refresh of queries
  - Re run any report
  - Save reports to be run again
@@ -19,28 +25,21 @@ Softwrapper and reporting tool for Postgres and MySQL
 ----------------------------------
 ```python
 from ryport.pgsql.postgres import Postgres
-
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
               host='localhost',
               database='dvdrental')
-
 # Test connection to server
 pg.test_connection()
-
 # Establish connection to server
 pg.establish_connection()
-
 # save sql query from file to variable
 query = pg.open_sql_file(r'queries/movies.sql')
-
 # Execute query, returning data and headers
 data, headers = pg.execute(query)
-
 # Terminate connection to server
 pg.close_connection()
-
 # Format data and headers to be readable,
 # by default data is a list of tuples
 # and headers are a psycopg2 Column object
@@ -50,37 +49,29 @@ headers = pg.format_headers(headers)
 
 ### MySQL basic query example
 ---
+__Currently MySQL is supported but only as a soft wrapper for executing queries.__
 ```python
 from ryport.mysql import my_sql
-
 # Create connect to database
 mysql = my_sql.MySQL('anonymous', '', 'ensembldb.ensembl.org', 3306, '')
-
 # Open the connection
 mysql.establish_connection()
-
 # Get the databases
 databases = mysql.execute("SHOW DATABASES")
-
 # Set our current database we want to use
 mysql.execute("USE {};".format(databases[1][0]))
-
 # Get a list of the tables from the database
 tables = mysql.execute("SHOW TABLES")
-
 # Choose the first table in out tables object,
 # get the column headers and get 5 rows from the table
 columns = mysql.execute("DESCRIBE {}".format(tables[1][0]))
 data = mysql.execute("SELECT * from {} LIMIT 5;".format(tables[1][0]))
-
 # Close the connection
 mysql.close_connection()
-
 # Print our column headers 
 # and the first row of results
 print(list(columns[0]))
 print(list(data[0]))
-
 # Output:
 # ['analysis_id', 'smallint(5) unsigned', 'NO', 'PRI', None, 'auto_increment']
 # [1, datetime.datetime(2005, 10, 18, 20, 28, 11), 'vectorbase', None, None, None, None, None, None, None, 'GeneBuild', None, None, None]
@@ -91,38 +82,65 @@ print(list(data[0]))
 ```python
 from ryport.pgsql.postgres import Postgres
 from ryport.xlsx_writer.writer import Writer
-
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
               host='localhost',
               database='dvdrental')
-
 # Test connection to server
 pg.test_connection()
-
 # Establish connection to server
 pg.establish_connection()
-
 # Load query
 query = pg.open_sql_file(r'queries/movies.sql')
-
 # Execute query
 # Automatically format data and headers
 data, headers = pg.execute(query, format_data=True, format_headers=True)
-
 # Terminate connection to server
 pg.close_connection()
-
 # Set file name
 file_name = 'movies.xlsx'
-
 # Create writer and load in data and headers
 writer = Writer(data, headers)
-
 # Write report using the file_name and a basic sheet_name
 writer.create_report(file_name=file_name ,sheet_names='sheet1')
 ```
+
+### Writing CSV Files!
+----------------------
+```python
+from ryport.pgsql.postgres import Postgres
+from ryport.report.csvw import Writer
+# Create postgres connection
+pg = Postgres(username='postgres',
+              password='password',
+              host='localhost',
+              database='dvdrental')
+# Test connection to server
+pg.test_connection()
+# Establish connection to server
+pg.establish_connection()
+# Load query
+query = pg.open_sql_file(r'queries/movies.sql')
+# Execute query
+# Automatically format data and headers
+data, headers = pg.execute(query)
+# Terminate connection to server
+pg.close_connection()
+# Create csv writer, pass in the data, headers, and give it a file name
+csvf = Writer(data, headers, 'movies.csv')
+# Create a csv writer and pass in the file name
+csvf.create_writer(csvf.file_name)
+# Write the csv file!
+csvf.write_csv()
+```
+
+# Data Structures
+
+With ryport you are able to crate xml files and parse them, this will eventually
+be used to create and save automated reporting for queries so that users can store
+connection information, query settings, reports and locations. This will allow for refreshing
+and re running of queries!
 
 ### Building XML files
 ----------------------

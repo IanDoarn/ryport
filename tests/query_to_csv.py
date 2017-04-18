@@ -1,10 +1,10 @@
 """
 Written by: Ian Doarn
 
-Executes query and creates excel file from data
+Write a csv file from postgres data
 """
 from ryport.pgsql.postgres import Postgres
-from ryport.report.xlsxw import Writer
+from ryport.report.csvw import Writer
 
 # Create postgres connection
 pg = Postgres(username='postgres',
@@ -23,16 +23,16 @@ query = pg.open_sql_file(r'queries/movies.sql')
 
 # Execute query
 # Automatically format data and headers
-data, headers = pg.execute(query, format_data=True, format_headers=True)
+data, headers = pg.execute(query)
 
 # Terminate connection to server
 pg.close_connection()
 
-# Set file name
-file_name = 'movies.xlsx'
+# Create csv writer, pass in the data, headers, and give it a file name
+csvf = Writer(data, headers, 'movies.csv')
 
-# Create writer and load in data and headers
-writer = Writer(data, headers)
+# Create a csv writer and pass in the file name
+csvf.create_writer(csvf.file_name)
 
-# Write report using the file_name and a basic sheet_name
-writer.create_report(file_name=file_name ,sheet_names='sheet1')
+# Write the csv file!
+csvf.write_csv()

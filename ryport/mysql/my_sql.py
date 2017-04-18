@@ -7,6 +7,9 @@ import mysql.connector
 from mysql.connector import connection
 from mysql.connector import errorcode
 
+# TODO: Test this on a real MySQL server
+# TODO: Comment this
+
 class MySQL:
 
     def __init__(self, username, password, host, port, database, raise_on_warnings=True, use_pure=False):
