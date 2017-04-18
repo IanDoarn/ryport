@@ -5,12 +5,14 @@ except ImportError:
 
 setup(
     name='ryport',
-    version='1.0.7',
-    install_requires=['psycopg2', 'lxml', 'XlsxWriter'],
-    packages=['ryport', 'ryport.pgsql', 'ryport.xml_builder', 'ryport.xlsx_writer'],
+    version='1.0.11',
+    install_requires=['psycopg2', 'lxml', 'XlsxWriter', 'mysql-connector-python'],
+    packages=['ryport', 'ryport.pgsql',
+              'ryport.xml_builder', 'ryport.xlsx_writer',
+              'ryport.mysql'],
     url='https://github.com/IanDoarn/ryport',
     license='MIT',
     author='Ian Doarn',
     author_email='ian.doarn@zimmerbiomet.com',
-    description='Reporting tool for PostgreSQL'
+    description='Reporting tool for PostgreSQL and MySQL'
 )

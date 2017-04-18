@@ -1,8 +1,5 @@
 # ryport
-Reporting tool for postgres
-
-ryport allows you to run simple postgres queries with ease as well as
-manipulate the data and build / reader xml files!
+Softwrapper and reporting tool for Postgres and MySQL
 
 ### Coming Soon!
  - Automated refresh of queries
@@ -12,12 +9,13 @@ manipulate the data and build / reader xml files!
 ### Requirements
 - Python 3.5+
 - psycopg2
+- mysql-connector-python
 - lxml
-- xlsxwriter
+- XlsxWriter
 
 # Usage
 
-### Basic example of executing a query.
+### Postgres basic query example
 ----------------------------------
 ```python
 from ryport.pgsql.postgres import Postgres
@@ -50,6 +48,43 @@ data = pg.format_data(data, list)
 headers = pg.format_headers(headers)
 ```
 
+### MySQL basic query example
+---
+```python
+from ryport.mysql import my_sql
+
+# Create connect to database
+mysql = my_sql.MySQL('anonymous', '', 'ensembldb.ensembl.org', 3306, '')
+
+# Open the connection
+mysql.establish_connection()
+
+# Get the databases
+databases = mysql.execute("SHOW DATABASES")
+
+# Set our current database we want to use
+mysql.execute("USE {};".format(databases[1][0]))
+
+# Get a list of the tables from the database
+tables = mysql.execute("SHOW TABLES")
+
+# Choose the first table in out tables object,
+# get the column headers and get 5 rows from the table
+columns = mysql.execute("DESCRIBE {}".format(tables[1][0]))
+data = mysql.execute("SELECT * from {} LIMIT 5;".format(tables[1][0]))
+
+# Close the connection
+mysql.close_connection()
+
+# Print our column headers 
+# and the first row of results
+print(list(columns[0]))
+print(list(data[0]))
+
+# Output:
+# ['analysis_id', 'smallint(5) unsigned', 'NO', 'PRI', None, 'auto_increment']
+# [1, datetime.datetime(2005, 10, 18, 20, 28, 11), 'vectorbase', None, None, None, None, None, None, None, 'GeneBuild', None, None, None]
+```
 
 ### Execute a query then create simple excel file from data
 -------------------------------------------------------
