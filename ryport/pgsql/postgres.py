@@ -123,7 +123,11 @@ class Postgres:
         :param file: File to be opened
         :return: Formatted query text
         """
+
+        # TODO: Fix issues with multi sub-query files not loading properly
+
         with open(file, 'r')as f:
             query = f.read().replace('\n', ' ')
         f.close()
         return query
+

@@ -23,7 +23,7 @@ query = pg.open_sql_file(r'queries/movies.sql')
 
 # Execute query
 # Automatically format data and headers
-data, headers = pg.execute(query, format_data=True, format_headers=True)
+data, headers = pg.execute(query)
 
 # Terminate connection to server
 pg.close_connection()
@@ -35,4 +35,4 @@ file_name = 'movies.xlsx'
 writer = Writer(data, headers)
 
 # Write report using the file_name and a basic sheet_name
-writer.create_report(file_name=file_name ,sheet_names='sheet1')
+writer.write_xlsx(file_name=file_name ,sheet_names='sheet1')

@@ -85,17 +85,22 @@ def format_headers(headers):
     """
     Formats to a dictionary of headers 
     names and column index
+    
+    
+    {'data': [{'name': 'column_name', 'column_index': int}]}
 
     :param headers: Column object
     :return: header data as a dictionary object
     """
     if type(headers) is not list:
-        raise TypeError('headers must be list not {}'.format(str(type(headers))))
+        _headers = list(headers)
+
+    _headers = headers
 
     header_data = {'data': []}
 
     column_index = 0
-    for key in headers:
+    for key in _headers:
         header_data['data'].append({'name': key[0], 'column_index': column_index})
         column_index += 1
 
