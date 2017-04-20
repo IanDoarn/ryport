@@ -104,6 +104,7 @@ file_name = 'movies.xlsx'
 writer = Writer(data, headers)
 # Write report using the file_name and a basic sheet_name
 writer.create_single_sheet_simple(file_name=file_name)```
+```
 
 ### Writing CSV Files!
 ----------------------
