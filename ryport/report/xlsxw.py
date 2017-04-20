@@ -12,6 +12,7 @@ DEFAULT_FILE_NAME = 'untitled.xlsx'
 DEFAULT_SHEET_NAME = 'sheet'
 DEFAULT_EXTENSION = '.xlsx'
 
+# TODO: Fix create_single_sheet_simple not working on create_table
 
 class Writer:
     """
@@ -163,8 +164,7 @@ class Writer:
         worksheet.set_column('{}:{}'.format(init_l, final_l))
 
         # Create and add table to worksheet
-        worksheet.add_table('{}:{}'.format(init_p, final_p),
-                            column_data)
+        worksheet.add_table('{}:{}'.format(init_p, final_p), column_data)
 
         # Close workbook
         workbook.close()

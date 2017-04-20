@@ -35,11 +35,7 @@ class Writer:
             self.headers = headers
 
         # Determine if data is correctly formatted
-        if type(data) is list:
-            for item in data:
-                if type(item) in [dict, list, tuple, bytes]:
-                    raise ValueError('data contains invalid type: {}'.format(str(type(item))))
-        elif type(data) is not list:
+        if type(data) is not list:
             raise TypeError('data must be list not {}'.format(str(type(data))))
 
         self.data = data
