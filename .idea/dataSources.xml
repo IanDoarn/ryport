@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="PostgreSQL - postgres@vsbslgprd01.zmr.zimmer.com" uuid="18d9ba75-8896-4c04-bc24-45eb4d6e11b5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://vsbslgprd01.zmr.zimmer.com:5432/postgres</jdbc-url>
+    </data-source>
+  </component>
+</project>
