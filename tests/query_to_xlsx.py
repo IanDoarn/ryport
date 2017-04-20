@@ -35,4 +35,4 @@ file_name = 'movies.xlsx'
 writer = Writer(data, headers)
 
 # Write report using the file_name and a basic sheet_name
-writer.write_xlsx(file_name=file_name ,sheet_names='sheet1')
+writer.create_single_sheet_simple(file_name=file_name)

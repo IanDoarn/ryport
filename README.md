@@ -95,7 +95,7 @@ pg.establish_connection()
 query = pg.open_sql_file(r'queries/movies.sql')
 # Execute query
 # Automatically format data and headers
-data, headers = pg.execute(query, format_data=True, format_headers=True)
+data, headers = pg.execute(query)
 # Terminate connection to server
 pg.close_connection()
 # Set file name
@@ -103,8 +103,7 @@ file_name = 'movies.xlsx'
 # Create writer and load in data and headers
 writer = Writer(data, headers)
 # Write report using the file_name and a basic sheet_name
-writer.create_report(file_name=file_name ,sheet_names='sheet1')
-```
+writer.create_single_sheet_simple(file_name=file_name)```
 
 ### Writing CSV Files!
 ----------------------
