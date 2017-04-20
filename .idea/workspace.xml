@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72b230c9-ea8d-42cd-9d9b-20e09516b784" name="Default" comment="Fixed renamed directory xlsx to xlsx_writer, renamed xlsx_writer.py to writer.py, fixed setup.py imports">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/queries/ci_component_data.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/queries/ci_kit_data.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/queries/ci_piece_data.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/queries/ci_tray_data.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/queries/mutation_bins.sql" />
+    <list default="true" id="72b230c9-ea8d-42cd-9d9b-20e09516b784" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata.keystream" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata.keystream.len" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata.len" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata_i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_metadata_/metadata_i.len" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/_src_/database/postgres/schema/public.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/18d9ba75-8896-4c04-bc24-45eb4d6e11b5/storage.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/ryport/pgsql/parse.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ryport/report/xlsxw.py" afterPath="$PROJECT_DIR$/ryport/report/xlsxw.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -267,6 +270,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ryport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ryport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ryport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ryport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml_builder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -836,7 +857,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492701763877</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fixed renamed directory xlsx to xlsx_writer, renamed xlsx_writer.py to writer.py, fixed setup.py imports">
+      <created>1492701915797</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1492701915797</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -850,16 +878,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.502445" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26740947" sideWeight="0.49755502" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29498714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29498714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -916,7 +943,6 @@
     <MESSAGE value="Updates to postgres.py, added tests folder, crated basic example usage" />
     <MESSAGE value="setup.py changes" />
     <MESSAGE value="Updates to postgres.py, added xlsx_writer.py to allow for automatic writing of excel file from data returned by a query" />
-    <MESSAGE value="Fixed renamed directory xlsx to xlsx_writer, renamed xlsx_writer.py to writer.py, fixed setup.py imports" />
     <MESSAGE value="Added MySQL support, renamed directories, add utils.py, added mysql package, updated README.md, added requirements.txt, updated __init__.py in main directory. Added example usage for MySQL using Ensambl public database" />
     <MESSAGE value="Added report directory, renamed xlsx_writer to xlsxw, added csvw.py to write csv files from sql data. Restructured module, updated __init__.py, added test for csvw.py, updated setup.py, updated README.md to include new test examples. Commented csvw.py." />
     <MESSAGE value="Updated code in README.md example" />
@@ -924,7 +950,8 @@
     <MESSAGE value="Updates to postgres.py, added multi sheet support in xlsxw.py, attempting to fix issue with pening multi sub-query sql files" />
     <MESSAGE value="Updated multi sheet writer in xlsxw.py, fixed head formatting to stop raising typeerror when it is supposed to convert it, utils.py to fix format_headers, working example of multi sheet report" />
     <MESSAGE value="Reorganized files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganized files" />
+    <MESSAGE value="Fixed renamed directory xlsx to xlsx_writer, renamed xlsx_writer.py to writer.py, fixed setup.py imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed renamed directory xlsx to xlsx_writer, renamed xlsx_writer.py to writer.py, fixed setup.py imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
