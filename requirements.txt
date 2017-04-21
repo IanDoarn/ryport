@@ -1,4 +1,4 @@
-psycopg2
-mysql-connector-python
-lxml
-XlsxWriter
+psycopg2>=2.7.1
+mysql-connector-python>=2.0.4
+lxml>=3.7.3
+xlsxwriter>=0.9.6

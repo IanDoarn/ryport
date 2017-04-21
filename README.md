@@ -1,7 +1,7 @@
 # ryport
 Softwrapper and reporting tool for Postgres
 
-Ryport can ru queries and write the data straight to readable formats
+Ryport can run queries and write the data straight to readable formats
 such as Excel and CSV. 
 
 __!!Currently only PostgreSQL data can be converted to Excel and CSV files!!__
