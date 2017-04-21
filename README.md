@@ -101,7 +101,7 @@ file_name = 'movies.xlsx'
 # Create writer and load in data and headers
 writer = Writer(data, headers)
 # Write report using the file_name and a basic sheet_name
-writer.create_single_sheet_simple(file_name=file_name)```
+writer.create_single_sheet_simple(file_name=file_name)
 ```
 
 ### Multi query to multi sheet excel file
