@@ -261,11 +261,7 @@ print(r.base)
 pprint.pprint(root_children_attributes, indent=4)
 ```
 Output:
-```python
-# Base object, a.k.a. the file name
-'ian.xml'
-
-# Attributes and sub-attributes of each element of root //Ian in ian.xml
+```json
 [   {   'attributes': {'type': 'languages', 'value': '3'},
         'children': [   {   'attribute': {'language_name': 'python'},
                             'element': <Element programming_languages at 0x17c5b48>,
