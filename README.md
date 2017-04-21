@@ -25,6 +25,7 @@ __!!Currently only PostgreSQL data can be converted to Excel and CSV files!!__
 ----------------------------------
 ```python
 from ryport.pgsql.postgres import Postgres
+
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
@@ -40,11 +41,6 @@ query = pg.open_sql_file(r'queries/movies.sql')
 data, headers = pg.execute(query)
 # Terminate connection to server
 pg.close_connection()
-# Format data and headers to be readable,
-# by default data is a list of tuples
-# and headers are a psycopg2 Column object
-data = pg.format_data(data, list)
-headers = pg.format_headers(headers)
 ```
 
 ### MySQL basic query example
@@ -52,6 +48,7 @@ headers = pg.format_headers(headers)
 __Currently MySQL is supported but only as a soft wrapper for executing queries.__
 ```python
 from ryport.mysql import my_sql
+
 # Create connect to database
 mysql = my_sql.MySQL('anonymous', '', 'ensembldb.ensembl.org', 3306, '')
 # Open the connection
@@ -82,6 +79,7 @@ print(list(data[0]))
 ```python
 from ryport.pgsql.postgres import Postgres
 from ryport.report.xlsxw import Writer
+
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
@@ -111,6 +109,7 @@ writer.create_single_sheet_simple(file_name=file_name)```
 ```python
 from ryport.pgsql.postgres import Postgres
 from ryport.report.xlsxw import Writer
+
 # Create postgres connection
 pg = Postgres(username='user',
               password='password',
@@ -156,6 +155,7 @@ writer.create_multi_sheet_simple()
 ```python
 from ryport.pgsql.postgres import Postgres
 from ryport.report.csvw import Writer
+
 # Create postgres connection
 pg = Postgres(username='postgres',
               password='password',
@@ -195,10 +195,8 @@ to create XML files!
 ```python
 from ryport.xml_builder.builder import XML
 
-
 file_name = 'ian.xml'
 xml = XML('Ian')
-
 name = xml.create_child('name', type='string', value='Ian')
 age = xml.create_child('age', type='integer', value='20')
 hobbies = xml.create_child('hobbies', type='Hobbies')
