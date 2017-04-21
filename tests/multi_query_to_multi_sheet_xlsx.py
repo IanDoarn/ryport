@@ -1,7 +1,8 @@
 """
 Written by: Ian Doarn
 
-Executes query and creates excel file from data
+Executes multiple queries and creates excel file from data
+that contains multiple sheets
 """
 from ryport.pgsql.postgres import Postgres
 from ryport.report.xlsxw import Writer
@@ -33,6 +34,7 @@ pg.close_connection()
 file_name = 'mutation.xlsx'
 
 # Create dict for input to writer
+# sheet1 and sheet4 are filler sheets and will be empty
 data = {'sheets': [{'name': 'sheet1',
                     'data': None,
                     'headers': None},
@@ -51,5 +53,5 @@ data = {'sheets': [{'name': 'sheet1',
 # Create writer and load in data and headers
 writer = Writer(pg_data=data, headers=None, multi_sheet=True)
 
-# Write report
+# Write multi sheet report
 writer.create_multi_sheet_simple()
