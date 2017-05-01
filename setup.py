@@ -35,15 +35,6 @@ __classifiers__ = [
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6'
 ]
-# update pip automatically
-print("Updating pip")
-subprocess.call(['python',
-                 '-m',
-                 'pip',
-                 'install',
-                 '--upgrade',
-                 'pip'],
-                shell=True)
 
 # Descriptions
 long_desc = """Softwrapper and reporting tool for Postgres
