@@ -129,10 +129,8 @@ def create_package_list(base_package):
 setup_inf = dict(
     name=__project__,
     version=__version__,
-    # Required packages
     install_requires=install_requires,
-    # Directories located in the module
-    packages=create_package_list('ryport'),
+    packages=create_package_list(__project__),
     url=__url__,
     license=__license__,
     author=__author__,
