@@ -26,7 +26,6 @@ __license__ = 'MIT'
 __email__ = 'ian.doarn@zimmerbiomet.com'
 __classifiers__ = [
     'Intended Audience :: Developers',
-    'License :: {} License'.format(__license__),
     'Operating System :: MacOS :: MacOS X',
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX :: Linux',
