@@ -10,7 +10,7 @@ from ryport.report.xlsxw import Writer
 # Create postgres connection
 pg = Postgres(username='user',
               password='password',
-              host='localhost',
+              host='host',
               database='postgres')
 
 # Test connection to server
