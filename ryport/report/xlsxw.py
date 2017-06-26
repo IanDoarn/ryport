@@ -6,11 +6,11 @@ Writes and excel (xlsx) file from given data and headers
 import xlsxwriter
 
 __author__ = 'Ian Doarn'
-__file__ = 'xlsx.py'
 
-DEFAULT_FILE_NAME = 'untitled.xlsx'
-DEFAULT_SHEET_NAME = 'sheet'
 DEFAULT_EXTENSION = '.xlsx'
+DEFAULT_FILE_NAME = 'untitled{}'.format(DEFAULT_EXTENSION)
+DEFAULT_SHEET_NAME = 'sheet'
+
 
 # TODO: Fix create_single_sheet_simple not working on create_table
 
@@ -213,7 +213,7 @@ class Writer:
             headers = sheet['headers']
 
             # Set sheet name to default if one is not present
-            if sheet['name'] not in sheet.keys() or sheet['name'] is None:
+            if 'name' not in sheet.keys() or sheet['name'] is None:
                 sheet_name = DEFAULT_SHEET_NAME + str(sheet_count)
             else:
                 sheet_name = sheet['name']
